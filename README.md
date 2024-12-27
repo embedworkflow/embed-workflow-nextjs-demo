@@ -1,8 +1,8 @@
 # Embed Workflow NextJS Demo
 
-![](https://blog.embedworkflow.com/assets/node-js-demo/integrate-with-node-js.png "Node JS and Embed Workflow").
+![](https://blog.embedworkflow.com/assets/cards/next_js_demo.png "Next JS and Embed Workflow").
 
-[Live Demo](https://demo.embedworkflow.com/).
+[Live Demo](https://demo.embedworkflow.com/)
 
 This repository demonstrates how easy it is to add Embed Workflow to your NextJS project.
 
