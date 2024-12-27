@@ -1,6 +1,8 @@
 # Embed Workflow Node Demo
 
-![](https://blog.embedworkflow.com/assets/node-js-demo/integrate-with-node-js.png "Node JS and Embed Workflow")
+![](https://blog.embedworkflow.com/assets/node-js-demo/integrate-with-node-js.png "Node JS and Embed Workflow").
+
+[Live Demo](https://demo.embedworkflow.com/).
 
 This repository demonstrates how easy it is to add Embed Workflow to your node js projects. We will add a few UI components to a simple Next JS application.
 
