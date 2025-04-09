@@ -85,7 +85,7 @@ const Workflows = (props) => {
     <Layout>
       <UserNavigator userId={id} />
 
-      <div className="mx-auto">
+      <div className="mx-auto" style={{height: "calc(100vh - 200px)"}}>
         <link
           rel="stylesheet"
           media="screen"

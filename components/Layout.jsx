@@ -14,8 +14,6 @@ const Layout = ({ children }) => (
       <main>
         <div className="w-full">{children}</div>
       </main>
-
-      <footer className="flex h-24 w-full items-center justify-center border-t"></footer>
     </div>
   </div>
 );
