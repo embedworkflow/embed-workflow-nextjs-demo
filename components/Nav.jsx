@@ -9,7 +9,7 @@ const Nav = () => {
     const defaults =
       "inline-flex items-center rounded-md px-3 py-2 text-xs font-medium";
     return active
-      ? `${defaults} bg-green-300 text-gray-900`
+      ? `${defaults} bg-green-100 text-gray-900`
       : `${defaults} bg-gray-100 text-gray-900`;
   };
 
