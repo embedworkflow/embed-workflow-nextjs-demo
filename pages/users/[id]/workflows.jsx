@@ -25,16 +25,25 @@ export async function getServerSideProps(context) {
   const userPayload = JSON.stringify({
     config: {
       user_data: {
-        team_wave_api_key: "testingABC",
-        stages: [
-          { value: 173080, label: "Lead Discovered" },
-          { value: 173081, label: "Contact Initiated" },
-          { value: 173082, label: "Needs Identified" },
-          { value: 173083, label: "Proposal Submitted" },
-          { value: 173084, label: "In Negotiation" },
+        industries: [
+          { value: "healthcare", label: "Healthcare" },
+          { value: "technology", label: "Technology" },
+          { value: "financial_services", label: "Financial Services" },
+          { value: "manufacturing", label: "Manufacturing" },
+          { value: "retail", label: "Retail" },
+          { value: "education", label: "Education" },
+          { value: "real_estate", label: "Real Estate" },
+          { value: "professional_services", label: "Professional Services" }
         ],
-      },
-    },
+        agents: [
+          { label: "Maya Patel", value: 12345 },
+          { label: "Ethan Rodriguez", value: 23456 },
+          { label: "Sarah Chen", value: 34567 },
+          { label: "Marcus Thompson", value: 45678 },
+          { label: "Zara Mitchell", value: 56789 }
+        ]
+      }
+    }
   });
 
   // Optional: One way to update a user's data is by the users upsert API endpoint.
