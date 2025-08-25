@@ -27,7 +27,6 @@ And use the latest UI version: https://embedworkflow.com/ui-version
 ```yml
 EMBED_WORKFLOW_SK=sk_live_12345
 EMBED_WORKFLOW_PK=pk_live_12345
-EMBED_WORKFLOW_UI_VERSION=1.5.0
 ```
 
 ## How to use

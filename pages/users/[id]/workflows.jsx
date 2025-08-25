@@ -33,17 +33,17 @@ export async function getServerSideProps(context) {
           { value: "retail", label: "Retail" },
           { value: "education", label: "Education" },
           { value: "real_estate", label: "Real Estate" },
-          { value: "professional_services", label: "Professional Services" }
+          { value: "professional_services", label: "Professional Services" },
         ],
         agents: [
           { label: "Maya Patel", value: 12345 },
           { label: "Ethan Rodriguez", value: 23456 },
           { label: "Sarah Chen", value: 34567 },
           { label: "Marcus Thompson", value: 45678 },
-          { label: "Zara Mitchell", value: 56789 }
-        ]
-      }
-    }
+          { label: "Zara Mitchell", value: 56789 },
+        ],
+      },
+    },
   });
 
   // Optional: One way to update a user's data is by the users upsert API endpoint.
@@ -66,22 +66,24 @@ export async function getServerSideProps(context) {
     props: {
       token,
       embedWorkflowPk: process.env.EMBED_WORKFLOW_PK,
-      ewfVersion: process.env.EMBED_WORKFLOW_UI_VERSION,
     },
   };
 }
 
 const Workflows = (props) => {
-  const { token, ewfVersion, embedWorkflowPk } = props;
+  const { token, embedWorkflowPk } = props;
   const router = useRouter();
   const { id } = router.query;
-  const loadWorkflows = () => EWF.load(embedWorkflowPk, { jwt: token });
 
   useEffect(() => {
-    const script = document.createElement("script");
-    script.src = `https://cdn.ewf.to/ewf-${ewfVersion}.js`;
-    script.onload = loadWorkflows;
+    const inlineScript = document.createElement("script");
+    inlineScript.innerHTML = `!function(){var e=window.EWF=window.EWF||{};if(!e.invoked){e.invoked=!0,e.queue=[],e.load=function(){e.queue.push(arguments)}}}();`;
+    document.head.appendChild(inlineScript);
 
+    window.EWF.load(embedWorkflowPk, { jwt: token });
+
+    const script = document.createElement("script");
+    script.src = "https://cdn.ewf.to/ewf-loader.js";
     document.body.appendChild(script);
 
     // Cleanup
@@ -94,12 +96,7 @@ const Workflows = (props) => {
     <Layout>
       <UserNavigator userId={id} />
 
-      <div className="mx-auto" style={{height: "calc(100vh - 200px)"}}>
-        <link
-          rel="stylesheet"
-          media="screen"
-          href={`https://cdn.ewf.to/ewf-${ewfVersion}.css`}
-        />
+      <div className="mx-auto" style={{ height: "calc(100vh - 200px)" }}>
         <div
           className="EWF__app"
           data-base-path={`users/${id}/workflows`}
